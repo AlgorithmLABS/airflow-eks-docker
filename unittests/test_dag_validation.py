@@ -24,7 +24,7 @@ class TestDagValidation:
             - check for loading time
         """
         stats = dagbag.dagbag_stats
-        slow_dags = list(filter(lambda f: f.duration > self.LOAD_SECOND_THRESHOLD, stats))
+        slow_dags = list(filter(lambda f: f.duration.seconds > self.LOAD_SECOND_THRESHOLD, stats))
         res = ', '.join(map(lambda f: f.file[1:], slow_dags))        
 
         assert len(slow_dags) == 0, "The following DAGs take more than {0}s to load: {1}".format(
@@ -63,3 +63,5 @@ class TestDagValidation:
         for dag_id, dag in dagbag.dags.items():
             emails = dag.default_args.get('email', [])
             assert self.REQUIRED_EMAIL in emails, "The email {0} for sending alerts is missing from the DAG {1}".format(self.REQUIRED_EMAIL, dag_id)
+    
+    
