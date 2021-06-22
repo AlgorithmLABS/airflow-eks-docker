@@ -24,8 +24,8 @@ class TestIntegrationSimplePipe:
         Delete all DB records related to the specified Dag.
         """
         tables = [
-            models.DagRun,
-            models.TaskInstance,
+            models.dagrun.DagRun,
+            models.taskinstance.TaskInstance,
             models.log.Log,
             models.taskfail.TaskFail,
             models.taskreschedule.TaskReschedule,
