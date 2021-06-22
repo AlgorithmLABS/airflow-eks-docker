@@ -14,7 +14,7 @@ class TestIntegrationSimplePipe:
 
     def pause_dag(self, dag_id, pause):
         """(Un)pauses a dag"""
-        models.DagModel.get_dagmodel(dag_id).set_is_paused(
+        models.dag.DAG.get_dagmodel(dag_id).set_is_paused(
             is_paused=pause
         )
         
