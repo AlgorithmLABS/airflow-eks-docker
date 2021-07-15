@@ -8,7 +8,7 @@ RUN pip install --user google-cloud-bigquery==2.6.2
 
 RUN pip install --upgrade apache-airflow-providers-google
 
-RUN pip install --upgrade apache-airflow-providers-sftp apache-airflow-providers-slack apache-airflow-providers-http apache-airflow-providers-ssh apache-airflow-providers-amazon
+RUN pip install --upgrade apache-airflow-providers-sftp apache-airflow-providers-slack apache-airflow-providers-http apache-airflow-providers-ssh apache-airflow-providers-amazon apache-airflow-providers-cncf-kubernetes
 
 
 COPY dags/ ${AIRFLOW_HOME}/dags
