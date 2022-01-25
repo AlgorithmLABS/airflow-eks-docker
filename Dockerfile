@@ -2,14 +2,8 @@ FROM apache/airflow:2.1.4-python3.7
 
 LABEL version="1.0.0"
 
-RUN pip install --user pytest
-
-RUN pip install --user google-cloud-bigquery==2.6.2
-
-RUN pip install apache-airflow-providers-google
-
-RUN pip install apache-airflow-providers-sftp apache-airflow-providers-slack apache-airflow-providers-http apache-airflow-providers-ssh apache-airflow-providers-amazon apache-airflow-providers-cncf-kubernetes apache-airflow-providers-elasticsearch
-
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 COPY dags/ ${AIRFLOW_HOME}/dags
 COPY unittests.cfg ${AIRFLOW_HOME}/unittests.cfg
